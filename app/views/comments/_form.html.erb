@@ -1,0 +1,10 @@
+<div class="new-post">
+  <%= form_for [@post, @comment] do |f| %>
+    <div class= "write-blog">
+      <%= f.hidden_field :user_id, value: current_user.id%>
+      <%= f.label :comment %><br />
+      <%= f.text_area :text, class: "form-control", autofocus: true %><br>
+      <div><%= f.submit nil, class: "btn btn-primary" %></div>
+    </div>
+  <% end %>
+</div>

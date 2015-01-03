@@ -1,0 +1,28 @@
+<div class="inner-body">
+  <div class="posts col-md-5 col-md-offset-3">
+    <% @posts.each do | post |%>
+      <div class="post-div">
+      <br>
+        <div class="post-header-home">
+          <span class="post-author vcard">
+            <i class="fa fa-user"></i>
+            <span class="fn"> <%= post.user.full_name %></span>
+          </span>
+        </div>
+        <div class= 'post-content'>
+          <p> <%= post.text %></p>
+        </div>
+        <div class="post-header-label">
+          <span class="post-timestamp">
+          <i class=""> <%= post.date %></i>
+          <ul class="pull-right">
+            <li><%= link_to_unless(post.comments.blank?, "#{post.comments.count} comments", post_path(post), title: 'show all coments') %></li>
+            <li><%= link_to 'Add Comment', new_post_comment_path(post), title: 'add new comment'%></li>
+          </ul>
+          </span>
+        </div>
+      </div>
+    <% end %>
+    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>

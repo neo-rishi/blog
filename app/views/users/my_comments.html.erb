@@ -1,0 +1,27 @@
+<div class="inner-body">
+  <div class="posts col-md-5 col-md-offset-3">
+    <% @comments.each do | comment |%>
+      <div class="post-div">
+      <br>
+        <div class="post-header-home">
+          <span class="post-author vcard">
+            <i class="fa fa-user"></i>
+            <span class="fn"> <%= comment.user.full_name %></span>
+          </span>
+        </div>
+        <div class= 'post-content'>
+          <p> <%= comment.text %></p>
+        </div>
+        <div class="post-header-label">
+          <span class="post-timestamp">
+          <i> <%= comment.date %></i>
+          <ul class="pull-right">
+            <li><%= link_to 'Edit', edit_post_comment_path(comment.post, comment) %></li>
+            <li><%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete %></li>
+          </ul>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

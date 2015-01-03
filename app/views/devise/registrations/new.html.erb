@@ -1,0 +1,30 @@
+<div>
+  <div class="sign_in_ui">
+    <div class="message margin-top_0">
+    <h2><b>Sign Up </b></h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name, class: "form-signin")) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div><%= f.label :email %><br />
+    <%= f.email_field :email, class: "form-control", autofocus: true %></div><br>
+
+    <div><%= f.label :password %> <% if @validatable %><% end %><br />
+      <%= f.password_field :password, class: "form-control", autocomplete: "off" %></div><br>
+
+    <div><%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off" %></div><br>
+
+    <div><%= f.label :name %><br />
+    <%= f.text_field :first_name, class: "form-control", autofocus: true %></div><br>
+
+    <div><%= f.label :surname %><br />
+    <%= f.text_field :last_name, class: "form-control", autofocus: true %></div><br>
+
+    <div><%= f.submit "Sign up", class: "btn btn-primary" %></div>
+  <% end %>
+    </div>
+  </div>
+  <div class="sign_in_social_ui">
+    <%= render 'social-media/login_with'%>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div>
+  <div class="sign_in_ui">
+    <div class="message">
+    <h2><b> Sign in </b></h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-signin") do |f| %>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email, class: "form-control", autofocus: true %></div><br>
+
+      <div><%= f.label :password %><br />
+        <%= f.password_field :password, class: "form-control", autocomplete: "off" %></div><br>
+
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div><br>
+      <% end -%>
+
+      <div><%= f.submit "Log in", class: "btn btn-primary" %></div>
+    <% end %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+    </div>
+  </div>
+  <div class="sign_in_social_ui" >
+    <%= render 'social-media/login_with'%>
+  </div>
+</div>
+
